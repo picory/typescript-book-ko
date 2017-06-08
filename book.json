@@ -4,7 +4,7 @@
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/roylory/typescript-book-ko/tree/master",
-      "label": "Edit This Page"
+      "label": "이 페이지 편집"
     },
     "github": {
       "url": "https://github.com/roylory/typescript-book-ko/"

@@ -1,4 +1,4 @@
-TypeScript Deep Dive (번역)
+TypeScript 깊게 파기 ([원문](https://basarat.gitbooks.io/typescript))
 =======
 
 저는 사람들이 TypeScript를 쓰기 시작하면서 겪는 문제들을 보아왔습니다. 이 책의 내용은
@@ -8,15 +8,12 @@ TypeScript Deep Dive (번역)
 ## 시작하기
 여기서부터 [시작하세요](https://roylory.gitbooks.io/typescript-book-ko/docs/getting-started.html).
 
-## Other Options
-You can also download one of the following:
-* [EPUB for iPad,iPhone,Mac](https://www.gitbook.com/download/epub/book/basarat/typescript)
-* [PDF for Windows and others](https://www.gitbook.com/download/pdf/book/basarat/typescript)
-* [MOBI for Kindle](https://www.gitbook.com/download/mobi/book/basarat/typescript)
+## 다운로드
+다음의 포맷으로도 다운로드 받을 수 있습니다:
+* [EPUB for iPad, iPhone, Mac](https://www.gitbook.com/download/epub/book/roylory/typescript-book-ko)
+* [PDF for Windows and others](https://www.gitbook.com/download/pdf/book/roylory/typescript-book-ko)
+* [MOBI for Kindle](https://www.gitbook.com/download/mobi/book/roylory/typescript-book-ko)
 
-## Special Thanks
-All the amazing [contributors](https://github.com/basarat/typescript-book/graphs/contributors) 🌹
-
-## Share
-* 영어: http://basarat.gitbooks.io/typescript/
+## 공유
+* 영어: http://basarat.gitbooks.io/typescript
 * 한글: https://roylory.gitbooks.io/typescript-book-ko

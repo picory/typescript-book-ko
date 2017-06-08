@@ -1,6 +1,7 @@
 # Summary
 
-* [Getting Started](docs/getting-started.md)
+* [소개](README.md)
+* [시작하기](docs/getting-started.md)
   * [Why TypeScript](docs/why-typescript.md)
 * [JavaScript](docs/javascript/recap.md)
   * [Awful](docs/javascript/awful.md)
