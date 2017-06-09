@@ -1,7 +1,7 @@
 TypeScript 깊게 파기 ([원문](https://basarat.gitbooks.io/typescript))
 =======
 
-[![Flattr Button](http://api.flattr.com/button/flattr-badge-large.png "번역이 마음에 드시면 기부 부탁드립니다!")](https://flattr.com/submit/auto?user_id=knq7q1&url=https://github.com/roylory/typescript-book-ko&title=typescript-book-ko&language=&tags=&category=)
+[![Flattr Button](http://api.flattr.com/button/flattr-badge-large.png "번역이 마음에 드시면 기부 부탁드립니다!")](https://flattr.com/submit/auto?user_id=roylory&url=https://github.com/roylory/typescript-book-ko&title=typescript-book-ko&language=&tags=&category=)
 
 저는 사람들이 TypeScript를 쓰기 시작하면서 겪는 문제들을 보아왔습니다. 이 책의 내용은
 [StackOverflow](http://stackoverflow.com/tags/typescript/topusers)나 [DefinitelyTyped](https://github.com/DefinitelyTyped/), 그리고
