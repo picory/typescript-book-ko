@@ -1,23 +1,25 @@
-# Why TypeScript
-There are two main goals of TypeScript:
-* Provide an *optional type system* for JavaScript.
-* Provide planned features from future JavaScript editions to current JavaScript engines
+# 왜 TypeScript인가
 
-The desire for these goals is motivated below.
+TypeScript에는 2가지 목표가 있습니다:
+* 첫번째는 JavaScript에 *타입 시스템* 을 *선택적* 으로 제공하는 것이고,
+* 두번째는 미래에 JavaScript에서 구현하기로 계획된 기능들을 현재의 JavaScript 엔진에서 미리 제공하는 것입니다.
 
-## The TypeScript type system
+이러한 목표는 아래와 같은 이유에서 시작되었습니다.
 
-You might be wondering "**Why add types to JavaScript?**"
+## TypeScript 타입 시스템
 
-Types have proven ability to enhance code quality and understandability. Large teams (google,microsoft,facebook) have continually arrived at this conclusion. Specifically:
+당신은 어쩌면 "**왜 JavaScript에 타입을 넣겠다는 거야?**"라고 생각할지도 모르겠습니다.
 
-* Types increase your agility when doing refactoring. *It's better for the compiler to catch errors than to have things fail at runtime*.
-* Types are one of the best forms of documentation you can have. *The function signature is a theorem and the function body is the proof*.
+타입 시스템은 코드의 질을 향상하고 이해도를 높이는 것으로 증명되었습니다. Google, Microsoft, Facebook 같은 큰 기업들이 다들 이와 같은 결론에 도달하였습니다. 특히,
 
-However types have a way of being unnecessarily ceremonious. TypeScript is very particular about keeping the barrier to entry as low as possible. Here's how:
+* 타입은 리팩토링을 할 때 당신을 기민하게 해줍니다. *런타임 때 프로그램이 깨지는 것보다 컴파일 때 에러가 나는 편이 낫습니다.*
+* 문서화 작업을 할 때 최고의 형식이 타입을 쓰는 것입니다. *마치 function signature는 이론이고 function body는 증명이라고 비유할 수 있습니다.*.
 
-### Your JavaScript is TypeScript
-TypeScript provides compile time type safety for your JavaScript code. This is no surprise given its name. The great thing is that the types are completely optional. Your JavaScript code `.js` file can be renamed to a `.ts` file and TypeScript will still give you back valid `.js` equivalent to the original JavaScript file. TypeScript is *intentionally* and strictly a superset of JavaScript with optional Type checking.
+그렇지만 타입은 지나치게 격식을 갖춘 듯한 느낌도 있습니다. 그래서 TypeScript는 입문 장벽을 최대한 낮추려고 다음과 같이 설계되었습니다.
+
+### 당신의 JavaScript는 이미 TypeScript입니다
+
+TypeScript는 컴파일 시 타입 확인을 합니다. 이름부터 TypeScript니깐 이건 당연하죠. TypeScript의 좋은 점은 이러한 타입 사용이 완전히 선택적이라는 점입니다. `.js` JavaScript 파일을 `.ts`로 바꾸고 컴파일을 해도 원본과 동등한 유효한 `.js`가 나올 것입니다. 이것은 TypeScript가 선택적인 타입 체킹이 추가된 *의도적이고도* 엄격한 JavaScript의 대집합이기 때문입니다.
 
 ### Types can be Implicit
 TypeScript will try to infer as much of the type information as it can in order to give you type safety with minimal cost of productivity during code development. For example, in the following example TypeScript will know that foo is of type `number` below and will give an error on the second line as shown:
@@ -113,7 +115,7 @@ $(123).show(); // Error: selector needs to be a string
 
 We will discuss the details of creating TypeScript definitions for existing JavaScript in detail later once you know more about TypeScript (e.g. stuff like `interface` and the `any`).
 
-## Future JavaScript => Now
+## 미래의 JavaScript를 현재로
 TypeScript provides a number of features that are planned in ES6 for current JavaScript engines (that only support ES5 etc). The typescript team is actively adding these features and this list is only going to get bigger over time and we will cover this in its own section. But just as a specimen here is an example of a class:
 
 ```ts
@@ -136,8 +138,8 @@ and the lovely fat arrow function:
 var inc = (x)=>x+1;
 ```
 
-### Summary
-In this section we have provided you with the motivation and design goals of TypeScript. With this out of the way we can dig into the nitty gritty details of TypeScript.
+### 정리
+우리는 이 섹션에서 TypeScript이 만들어진 이유와 목표에 대해 알아보았습니다. 이제 TypeScript의 상세한 내용들을 낱낱이 파보겠습니다.
 
 [](Interfaces are open ended)
 [](Type Inferernce rules)

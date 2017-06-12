@@ -22,7 +22,7 @@ TypeScript는 JavaScript로 컴파일됩니다. 브라우져든 서버든 상관
 npm install -g typescript@next
 ```
 
-이후로 `tsc`를 쓰면 항상 최신 버전을 이용하게 됩니다. 많은 IDE가 이를 지원합니다. 예를들어,
+이후로 `tsc`를 쓰면 항상 최신 버전을 이용하게 됩니다. 많은 IDE가 이를 지원합니다. 그 예로,
 
 * `alm`은 항상 최신 TypeScript 버전을 씁니다.
 * 비주얼 스튜디오 코드에서는 `.vscode/settings.json` 파일을 아래와 같이 생성하면 됩니다.
