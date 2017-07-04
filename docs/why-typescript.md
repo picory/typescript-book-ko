@@ -58,7 +58,7 @@ Typescript가 지원하는 어노테이션 문법에 대해서는 이후의 장�
 
 ### 타입은 구조적이다
 
-In some languages (specifically nominally typed ones) static typing results in unnecessary ceremony because even though *you know* that the code will work fine the language semantics force you to copy stuff around. This is why stuff like [automapper for C#](http://automapper.org/) is *vital* for C#. In TypeScript because we really want it to be easy for JavaScript developers with a minimum cognitive overload, types are *structural*. This means that *duck typing* is a first class language construct. Consider the following example. The function `iTakePoint2D` will accept anything that contains all the things (`x` and `y`) it expects:
+어떤 언어에서는 (특히 명목적 타입의 언어들에서는) 정적 타입 변화가 불필요한 격식을 필요로 하기도 합니다. 왜냐하면 *당신은* 그런 격식 없이도 코드가 잘 동작할 것이란 걸 알지만, 언어 의미 구조상 그렇게 해야하기 때문입니다. 그렇기 때문에 C#에서는 [오토 매퍼](http://automapper.org) 같은 것이 *필수적*입니다. 하지만 우리는 JavaScript 개발자에게 최소한의 인지 과부하를 주고 싶었기 때문에 TypeScript에서는 타입을 *구조적*으로 하였습니다. 이것은 *덕 타입*이 특급 언어 구조체란 것을 의미합니다. 다음과 같은 예제를 생각해 보십시오. `iTakePoint2D` 함수는 `x`와 `y`를 포함하기만 하면 모두 받아들일 것입니다.
 
 ```ts
 interface Point2D {
@@ -74,14 +74,14 @@ var point2D: Point2D = { x: 0, y: 10 }
 var point3D: Point3D = { x: 0, y: 10, z: 20 }
 function iTakePoint2D(point: Point2D) { /* do something */ }
 
-iTakePoint2D(point2D); // 정확히 매치가 맞으므로 괜찮다
-iTakePoint2D(point3D); // 추가로 매개변수가 있는 것은 괜찮다
+iTakePoint2D(point2D); // 정확히 매치가 맞으므로 괜찮음
+iTakePoint2D(point3D); // 추가로 매개변수가 있는 것은 괜찮음
 iTakePoint2D({ x: 0 }); // 에러: `y`가 필요함
 ```
 
 ### 타입 에러가 있어도 JavaScript를 내놓는다
 
-To make it easy for you to migrate your JavaScript code to TypeScript, even if there are compilation errors, by default TypeScript *will emit valid JavaScript* the best that it can. e.g.
+TypeScript는 당신의 JavaScript 코드를 TypeScript로 쉽게 변환할 수 있도록 컴파일 에러가 있어도 최대한 할 수 있는 한도 내에서 *유효한 JavaScript를 내놓을 것입니다*.
 
 ```ts
 var foo = 123;
@@ -95,40 +95,46 @@ var foo = 123;
 foo = '456';
 ```
 
-So you can incrementally upgrade your JavaScript code to TypeScript. This is very different from how many other language compilers work and yet another reason to move to TypeScript.
+그러므로 당신의 JavaScript 코드를 조금씩 점진적으로  TypeScript로 변환할 수 있습니다. 다른 언어의 컴파일러들 과는 꽤 다릅니다. 이런 것이 TypeScript를 쓸 또 다른 이유입니다.
 
 ### 타입은 앰비언트(ambient)할 수 있다
 
-A major design goal of TypeScript was to make it possible for you to safely and easily use existing JavaScript libraries in TypeScript. TypeScript does this by means of *declaration*. TypeScript provides you with a sliding scale of how much or how little effort you want to put in your declarations, the more effort you put the more type safety + code intelligence you get. Note that definitions for most of the popular JavaScript libraries have already been written for you by the [DefinitelyTyped community](https://github.com/borisyankov/DefinitelyTyped) so for most purposes either:
+TypeScript의 중요한 설계 목표 중 하나는 기존의 JavaScript 라이브러리를 쉽고 안전하게 사용할 수 있게 하는 것입니다. TypeScript는 이것을 *선언(declaration)*을 통해서 합니다. 당신이 선언 구문에 얼마나 노력을 기울이냐에 따라서 코드 안전성과 코드 완성 기능의 수준이 결정됩니다. 유명한 JavaScript 라이브러리는 대부분 이미 [DefinitelyTyped community](https://github.com/borisyankov/DefinitelyTyped)에 정의되어 있음을 알아두세요. 그러므로 대부분의 경우,
 
-1. The definition file already exists.
-1. Or at the very least, you have a vast list of well reviewed TypeScript declaration templates already available
+1. 선언 정의(definition) 파일은 대부분 존재합니다.
+1. 아니면, 이미 잘 검토된 방대한 양의 TypeScript 선언 템플릿이 존재합니다.
 
-As a quick example of how you would author your own declaration file, consider a trivial example of [jquery](https://jquery.com/). By default (as is to be expected of good JS code) TypeScript expects you to declare (i.e. use `var` somewhere) before you use a variable
+어떻게 선언 파일을 만드는 지에 대한 간단한 예로 [jquery](https://jquery.com/)를 사용한 예제를 보겠습니다. 기본적으로 TypeScript는 (훌륭한 JavaScript 코드가 대부분 그러하듯이) `var` 등을 사용해 선언하지 않고 변수를 사용하는 것을 금합니다.
+
 ```ts
-$('.awesome').show(); // Error: cannot find name `$`
+$('.awesome').show(); // 에러: `$`를 찾을 수 없음
 ```
-As a quick fix *you can tell TypeScript* that there is indeed something called `$`:
+
+이것을 고치는 빠른 방법은 TypeScript한테 어딘가에 `$`이 정말로 있다고 알려주는 것입니다.
+
 ```ts
 declare var $:any;
-$('.awesome').show(); // Okay!
+$('.awesome').show(); // 오케이!
 ```
-If you want you can build on this basic definition and provide more information to help protect you from errors:
+
+이 기본적인 정의에서 조금 더 정보를 주면 에러를 막는데 도움이 될 수 있습니다.
+
 ```ts
 declare var $:{
     (selector:string): any;
 };
-$('.awesome').show(); // Okay!
-$(123).show(); // Error: selector needs to be a string
+$('.awesome').show(); // 오케이!
+$(123).show(); // 에러: $() 안에 문자열이 와야 함
 ```
 
-We will discuss the details of creating TypeScript definitions for existing JavaScript in detail later once you know more about TypeScript (e.g. stuff like `interface` and the `any`).
+기존 JavaScript 코드를 위해 TypeScript 선언 구문을 만드는 자세한 방법에 대해서는 `interface`나 `any` 등과 같은 TypeScript 기본에 대해서 먼저 배우고 난 이후에 다루도록 하겠습니다.
 
 ## 미래의 JavaScript를 현재로
 
-TypeScript provides a number of features that are planned in ES6 for current JavaScript engines (that only support ES5 etc). The typescript team is actively adding these features and this list is only going to get bigger over time and we will cover this in its own section. But just as a specimen here is an example of a class:
+TypeScript는 ES6에 예정된 많은 기능들을 현재의 (ES5만 지원하는) JavaScript 엔진에서 지원합니다. TypeScript 팀은 이런 기능들을 적극적으로 집어넣고 있습니다. 그리고 이런 기능들의 수는 계속 늘어나고 있습니다. 자세한 내용은 각 해당 섹션에서 다루겠습니다만, 맛보기로 예제를 조금만 보겠습니다.
 
 ```ts
+// 클래스 사용
 class Point {
     constructor(public x: number, public y: number) {
     }
@@ -142,9 +148,8 @@ var p2 = new Point(10, 20);
 var p3 = p1.add(p2); // {x:10,y:30}
 ```
 
-and the lovely fat arrow function:
-
 ```ts
+// 화살표 함수 사용
 var inc = (x)=>x+1;
 ```
 
