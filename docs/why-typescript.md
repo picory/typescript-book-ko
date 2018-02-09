@@ -113,14 +113,14 @@ $('.awesome').show(); // 에러: `$`를 찾을 수 없음
 이것을 고치는 빠른 방법은 TypeScript한테 어딘가에 `$`이 정말로 있다고 알려주는 것입니다.
 
 ```ts
-declare var $:any;
+declare var $: any;
 $('.awesome').show(); // 오케이!
 ```
 
 이 기본적인 정의에서 조금 더 정보를 주면 에러를 막는데 도움이 될 수 있습니다.
 
 ```ts
-declare var $:{
+declare var $: {
     (selector:string): any;
 };
 $('.awesome').show(); // 오케이!
@@ -145,12 +145,11 @@ class Point {
 
 var p1 = new Point(0, 10);
 var p2 = new Point(10, 20);
-var p3 = p1.add(p2); // {x:10,y:30}
+var p3 = p1.add(p2); // { x: 10, y: 30 }
 ```
 
 ```ts
-// 화살표 함수 사용
-var inc = (x)=>x+1;
+var inc = x => x+1;
 ```
 
 ### 정리

@@ -1,7 +1,19 @@
 {
-  "gitbook": ">=3.2.1",
-  "plugins": ["edit-link", "github"],
+  "language": "ko",
+  "author": "Basarat Ali Syed",
+  "title": "TypeScript 깊게 파기",
+  "plugins": [
+    "edit-link",
+    "github",
+    "header"
+  ],
   "pluginsConfig": {
+    "layout": {
+      "headerPath": "header.html"
+    },
+    "lunr": {
+      "ignoreSpecialCharacters": true
+    },
     "edit-link": {
       "base": "https://github.com/roylory/typescript-book-ko/tree/master",
       "label": "이 페이지 편집"

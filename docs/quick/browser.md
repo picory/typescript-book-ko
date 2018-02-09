@@ -3,7 +3,7 @@ If you are using TypeScript to create a web application here are my recommendati
 
 ## General Machine Setup
 
-* Install [NodeJS](https://nodejs.org/en/download/)
+* Install [Node.js](https://nodejs.org/en/download/)
 
 ## Project Setup
 * Create a project dir:
@@ -36,40 +36,30 @@ cd your-project
 npm init -y
 ```
 
-* Install [TypeScript-nightly](https://github.com/Microsoft/TypeScript), [`webpack`](https://github.com/webpack/webpack), [`ts-loader`](https://github.com/TypeStrong/ts-loader/), [`typings`](https://github.com/typings/typings):
+* Install [TypeScript-nightly](https://github.com/Microsoft/TypeScript), [`webpack`](https://github.com/webpack/webpack), [`ts-loader`](https://github.com/TypeStrong/ts-loader/)
 
 ```
-npm install typescript@next webpack ts-loader typings --save-dev
-```
-
-* Init typings (creates a `typings.json` file for you):
-
-```
-"./node_modules/.bin/typings" init
+npm install typescript@next webpack ts-loader --save-dev
 ```
 
 * Create a `webpack.config.js` to bundle your modules into a single `bundle.js` file that contains all your resources:
 
 ```js
-const path = require('path');
-
 module.exports = {
-    entry: './src/app.tsx',
-    output: {
-        path: path.resolve(__dirname, 'dist'),  
-        filename: 'bundle.js',
-        publicPath: '/dist/'
-    },
-    resolve: {
-        // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
-    },
-    module: {
-        loaders: [
-            // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            { test: /\.tsx?$/, loader: 'ts-loader' }
-        ]
-    }
+  devtool: 'inline-source-map',
+  entry: './src/app.tsx',
+  output: {
+    path: __dirname + '/public',
+    filename: 'build/app.js'
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+  module: {
+    rules: [
+      { test: /\.tsx?$/, loader: 'ts-loader' }
+    ]
+  }
 }
 ```
 
@@ -77,7 +67,6 @@ module.exports = {
 
 ```json
 "scripts": {
-    "prepublish": "typings install",
     "watch": "webpack --watch"
 },
 ```
@@ -94,20 +83,12 @@ Now if you make edits to your `ts` or `tsx` file webpack will generate `bundle.j
 If you are going to use React (which I highly recommend you give a look), here are a few more steps:
 
 ```
-npm install react react-dom --save
-```
-
-```
-npm i @types/react --save
-```
-
-```
-npm i @types/react-dom --save
+npm i react react-dom @types/react @types/react-dom --save
 ```
 
 A demo `index.html`:
 
-```
+```html
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -124,7 +105,7 @@ A demo `index.html`:
 
 A demo `./src/app.tsx`:
 
-```ts
+```js
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 

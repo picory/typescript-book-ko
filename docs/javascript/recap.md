@@ -2,7 +2,7 @@
 
 There were (and will continue to be) a lot of competitors in *Some syntax* to *JavaScript* compilers. TypeScript is different from them in that *Your JavaScript is TypeScript*. Here's a diagram:
 
-![](https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png)
+![JavaScript is TypeScript](https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png)
 
 However it does mean that *you need to learn JavaScript* (the good news is *you **only** need to learn JavaScript*). TypeScript is just standardizing all the ways you provide *good documentation* on JavaScript.
 
@@ -25,7 +25,7 @@ TypeScript will try to protect you from portions of JavaScript that never worked
 //
 {} + []; // JS : 0, TS Error
 [] + {}; // JS : "[object Object]", TS Error
-{} + {}; // JS : NaN, TS Error
+{} + {}; // JS : NaN or [object Object][object Object] depending upon browser, TS Error
 "hello" - 1; // JS : NaN, TS Error
 
 function add(a,b) {
@@ -39,3 +39,5 @@ Essentially TypeScript is linting JavaScript. Just doing a better job at it than
 ## You still need to learn JavaScript
 
 That said TypeScript is very pragmatic about the fact that *you do write JavaScript* so there are some things about JavaScript that you still need to know in order to not be caught off-guard. Let's discuss them next.
+
+> Note: TypeScript is a superset of JavaScript. Just with documentation that can actually be used by compilers / IDEs ;)

@@ -18,7 +18,7 @@ interface Rectangle {
 type Shape = Square | Rectangle;
 ```
 
-If you use a type guard style check (`==`, `===`, `!=`, `!==`) or `switch` on the *discriminant property* (here `kind`) TypeScript will realize that it means that the object must of the type that has that literal and do a type narrowing for you :)
+If you use a type guard style check (`==`, `===`, `!=`, `!==`) or `switch` on the *discriminant property* (here `kind`) TypeScript will realize that the object must be of the type that has that specific literal and do a type narrowing for you :)
 
 ```ts
 function area(s: Shape) {
@@ -74,7 +74,7 @@ function area(s: Shape) {
 }
 ```
 
-You can do that by simply adding a fall through and making sure that the inferred type in that block is compatible with the `never` type. For example:
+You can do that by simply adding a fall through and making sure that the inferred type in that block is compatible with the `never` type. For example if you add the exhastive check you get a nice error:
 
 ```ts
 function area(s: Shape) {
@@ -90,6 +90,27 @@ function area(s: Shape) {
     }
 }
 ```
+
+That forces you to handle this new case : 
+
+```ts
+function area(s: Shape) {
+    if (s.kind === "square") {
+        return s.size * s.size;
+    }
+    else if (s.kind === "rectangle") {
+        return s.width * s.height;
+    }
+    else if (s.kind === "circle") {
+        return Math.PI * (s.radius **2);
+    }
+    else {
+        // Okay once more
+        const _exhaustiveCheck: never = s;
+    }
+}
+```
+
 
 ### Switch
 TIP: of course you can also do it in a `switch` statement:
@@ -109,7 +130,7 @@ function area(s: Shape) {
 
 ### strictNullChecks
 
-If using strictNullChecks and doing exhaustive checks you should return the `_exhaustiveCheck` variable (of type `never`) as well, otherwise TypeScirpt infers a possible return of `undefined`. So:
+If using strictNullChecks and doing exhaustive checks you should return the `_exhaustiveCheck` variable (of type `never`) as well, otherwise TypeScript infers a possible return of `undefined`. So:
 
 ```ts
 function area(s: Shape) {

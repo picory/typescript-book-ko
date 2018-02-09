@@ -1,15 +1,16 @@
-* [TypeScript 시작하기](#getting-started-with-typescript)
-* [TypeScript 버전](#typescript-version)
+- [TypeScript 시작하기](#typescript-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
+  - [TypeScript 버전](#typescript-%EB%B2%84%EC%A0%84)
+  - [소스 코드 받기](#%EC%86%8C%EC%8A%A4-%EC%BD%94%EB%93%9C-%EB%B0%9B%EA%B8%B0)
 
 # TypeScript 시작하기
 
 TypeScript는 JavaScript로 컴파일됩니다. 브라우져든 서버든 상관없이 실제로 실행되는 코드는 JavaScript입니다. 그래서 다음과 같은 도구가 필요합니다.
 
 * TypeScript 컴파일러 ([소스코드](https://github.com/Microsoft/TypeScript/) 혹은  [NPM](https://www.npmjs.com/package/typescript))
-* TypeScript 편집기 (메모장을 이용해도 되지만 저는 [alm 🌹](http://alm.tools)을 씁니다. 그 외에도 [많은 다른 IDE]( https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support)가 있습니다.)
+* TypeScript 편집기 (메모장을 이용해도 되지만 저는 [alm 🌹](https://alm-tools.github.io/)을 씁니다. 그 외에도 [많은 다른 IDE]( https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support)가 있습니다.)
 
 
-![](https://raw.githubusercontent.com/alm-tools/alm-tools.github.io/master/screens/main.png)
+![alm editor window](https://raw.githubusercontent.com/alm-tools/alm-tools.github.io/master/screens/main.png)
 
 
 ## TypeScript 버전
